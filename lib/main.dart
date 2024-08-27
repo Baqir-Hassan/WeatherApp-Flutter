@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:weather2/pages/weather_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized;
-  await DotEnv.load(fileName: ".env");
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 

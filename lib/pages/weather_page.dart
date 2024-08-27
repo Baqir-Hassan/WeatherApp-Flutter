@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:weather2/models/weather_model.dart';
 import 'package:weather2/services/weather_service.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -14,7 +15,7 @@ class WeatherPage extends StatefulWidget {
 
 class _WeatherPageState extends State<WeatherPage> {
   // api key
-  final _weatherService = WeatherService('5fa759448d0c499d4ed5bc460cd48f50');
+  final _weatherService = WeatherService(dotenv.env['API_KEY'] ?? 'No API KEY');
   Weather? _weather;
   // fetch weather
   _fetchWeather() async {
